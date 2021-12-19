@@ -46,7 +46,7 @@ Using the vine_df, I wanted to answer the following sets of questions:
     - How many Vine reviews were there? 
     - How many Vine reviews were 5 stars? 
     - What percentage of Vine reviews were 5 stars? 
-- Non_Vine Reviews
+- Non-Vine Reviews
     - How many non-Vine reviews were there? 
     - How many non-Vine reviews were 5 stars? 
     - What percentage of non-Vine reviews were 5 stars?
@@ -67,7 +67,7 @@ The Vine DataFrame
 
 <img src=Images\vine_y.jpg>
 
-The Non_Vine DataFrame:
+The Non-Vine DataFrame:
 
 <img src=Images\vine_n.jpg>
 
