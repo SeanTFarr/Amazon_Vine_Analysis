@@ -2,7 +2,7 @@
 <img src=Images\Vine_analysis.png>
 
 ## Overview of the analysis: 
-The purpose of this analysis was to select a data set of reviews from Amazon Review datasets to perform the ETL(Extract, Transform, Load) process on. Using Pyspark we extracted the dataset, transformed the data by filtering the reviews, and then loaded the data into PGAdmin by conncting to an AWS RDS instance. Once loaded, we used Pyspark to further filter the dataset by separating out paid reviews vs unpaid reviews to determine if having a paid Vine review makes a difference in the percentage of 5 star reviews.
+Amazon Vine uses trusted reviewers to post opinions about new products to help inform other customers make informed decisions on their purchase. The purpose of this analysis was to select a data set of reviews from Amazon Review datasets to perform the ETL(Extract, Transform, Load) process on. Using Pyspark, I extracted the dataset, transformed the data by filtering the reviews, and then loaded the data into PGAdmin by conncting to an AWS RDS instance. Once loaded, Pyspark was used to further filter the dataset by separating out paid reviews(Vine) vs unpaid reviews(Non-Vine) to determine if having a paid Vine review makes a difference in the percentage of 5 star reviews.
 
 ### Resources used:
 - Code: Pyspark, Python, SQL
@@ -11,11 +11,11 @@ The purpose of this analysis was to select a data set of reviews from Amazon Rev
 - Dataset: https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Home_Improvement_v1_00.tsv.gz
 
 ## Results: 
-Following the ETL process,  we extracted the dataset an created a new DataFrame
+Following the ETL process,  we **extract**ed the dataset an created a new DataFrame
 
 <img src=Images\df.jpg>
 
-For the transforming portion we had to separate the dataset into 4 distinct DataFrames that were loaded the 4 DataFrames into PGAdmin tables: 
+For the **transform**ing portion I had to separate the dataset into 4 distinct DataFrames that were **load**ed the 4 DataFrames into PGAdmin tables: 
 
 1. The customers_df loaded into customers_table 
 
@@ -39,14 +39,50 @@ For the transforming portion we had to separate the dataset into 4 distinct Data
 
 
 
-<img src=>
-Using bulleted lists and images of DataFrames as support, address the following questions:
 
-- How many Vine reviews and non-Vine reviews were there?
-- How many Vine reviews were 5 stars? 
-- How many non-Vine reviews were 5 stars?
-- What percentage of Vine reviews were 5 stars? 
-- What percentage of non-Vine reviews were 5 stars?
+Using the vine_df, I wanted to answer the following sets questions:
+
+- Vine Reviews
+    1. How many Vine reviews were there? 
+    2. How many Vine reviews were 5 stars? 
+    3. What percentage of Vine reviews were 5 stars? 
+- Non_Vine Reviews
+    1. How many non-Vine reviews were there? 
+    2. How many non-Vine reviews were 5 stars? 
+    3. What percentage of non-Vine reviews were 5 stars?
+
+To answer these questions, we needed further filtering of the datasets. 
+
+I first filtered the DataFrame to show only the reviews with more than 20 total votes to pick reviews that are more likely to be helpful and to avoid having division by zero errors.
+
+<img src=Images\filtered_df.jpg>
+
+The DataFrame was then filtered to retreive all the rows where the number of helpful_votes divided by total_votes is equal to or greater than 50%.
+
+<img src=Images\rows_df.jpg>
+
+Finally, the new DataFrame used to separate out the Vine and Non-Vine reviews into two DataFrames:
+
+The Vine DataFrame
+
+<img src=Images\vine_y.jpg>
+
+The Non_Vine DataFrame:
+
+<img src=Images\vine_n.jpg>
+
+With these set up, I was able to determine the answers to the quesitons:
+
+For Vine reviews
+
+<img src=Images\vine_y_results.jpg>
+
+For Non-Vine reviews
+
+<img src=Images\vine_n_results.jpg>
 
 ## Summary: 
-In your summary, state if there is any positivity bias for reviews in the Vine program. Use the results of your analysis to support your statement. Then, provide one additional analysis that you could do with the dataset to support your statement.
+
+With the results of both the Vine and Non-Vine reviews having a similar percentage of 5 star reviews relative to their total reviews, it appears that there was no positivity bias occuring. In short, it looks like having a paid Vine review does not make a difference in the percentage of 5 star reviews.
+
+An additional analysis of the dataset could further support this by looking at the 4 star ratings reviews to see if the results between the Vine aand Non-Vine percentages are also similar.
