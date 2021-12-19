@@ -85,4 +85,4 @@ For Non-Vine reviews
 
 With the results of both the Vine and Non-Vine reviews having a similar percentage of 5 star reviews relative to their total reviews, it appears that there was no positivity bias occuring. In short, it looks like having a paid Vine review does not make a difference in the percentage of 5 star reviews.
 
-An additional analysis of the dataset could further support this by looking at the 4 star ratings reviews to see if the results between the Vine aand Non-Vine percentages are also similar.
+An additional analysis of the dataset could further support this by looking at the 4 star ratings reviews to see if the results between the Vine and Non-Vine percentages are also similar.
