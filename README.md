@@ -40,20 +40,20 @@ For the **transform**ing portion I had to separate the dataset into 4 distinct D
 
 
 
-Using the vine_df, I wanted to answer the following sets questions:
+Using the vine_df, I wanted to answer the following sets of questions:
 
 - Vine Reviews
-    1. How many Vine reviews were there? 
-    2. How many Vine reviews were 5 stars? 
-    3. What percentage of Vine reviews were 5 stars? 
+    - How many Vine reviews were there? 
+    - How many Vine reviews were 5 stars? 
+    - What percentage of Vine reviews were 5 stars? 
 - Non_Vine Reviews
-    1. How many non-Vine reviews were there? 
-    2. How many non-Vine reviews were 5 stars? 
-    3. What percentage of non-Vine reviews were 5 stars?
+    - How many non-Vine reviews were there? 
+    - How many non-Vine reviews were 5 stars? 
+    - What percentage of non-Vine reviews were 5 stars?
 
-To answer these questions, we needed further filtering of the datasets. 
+To answer these, further filtering of the datasets was needed. 
 
-I first filtered the DataFrame to show only the reviews with more than 20 total votes to pick reviews that are more likely to be helpful and to avoid having division by zero errors.
+First the DataFrame was filtered to show only the reviews with more than 20 total votes to pick reviews that are more likely to be helpful and to avoid having division by zero errors.
 
 <img src=Images\filtered_df.jpg>
 
@@ -61,7 +61,7 @@ The DataFrame was then filtered to retreive all the rows where the number of hel
 
 <img src=Images\rows_df.jpg>
 
-Finally, the new DataFrame used to separate out the Vine and Non-Vine reviews into two DataFrames:
+Finally, the new DataFrame was used to separate out the Vine and Non-Vine reviews into two DataFrames:
 
 The Vine DataFrame
 
