@@ -7,7 +7,7 @@ Amazon Vine uses trusted reviewers to post opinions about new products to help i
 ### Resources used:
 - Code: Pyspark, Python, SQL
 - Code Editor: Google Colab
-- Database: AWS RDS connected to PGAdmen
+- Database: AWS RDS connected to PGAdmin
 - Dataset: https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Home_Improvement_v1_00.tsv.gz
 
 ## Results: 
